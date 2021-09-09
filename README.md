@@ -1,1 +1,1 @@
-## Weather app using Flask 
+## Simple Weather app using Flask 
