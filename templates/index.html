@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> Weather </title>
+        <style>
+            .container{
+                height: 50px;
+                width: auto;
+                background-color:rgb(41, 111, 241);
+                text-align: left;
+                color:aliceblue;
+                padding-left: 35px;
+                padding-top: 10px;
+                font-weight:bold;
+                font-size: 32px;
+            }
+            .input{
+                margin-top: 35px;
+                text-align: center;
+            }
+            .input-city{
+                height: 30px;
+                border: 2px solid rgb(16, 96, 161);
+                width: 240px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class='container'>
+            Weather Report
+        </div>
+        <div class='input'>
+            <form action="/weather" enctype="multipart/form-data" method="POST">
+                <input class='input-city' type="text" name="city" value="" placeholder="Enter city" >
+                <button type='submit'> search </button>
+            </form>
+            {% if data %}
+            <div class="output">
+                <p>
+                    Country code : {{data['country_code']}}
+                </p>
+                <p>
+                    Current weather : {{data['current_weather']}}
+                </p>
+                <p>
+                    Temperature : {{data['temperature']}}
+                </p>
+                <p>
+                    Humidity level : {{data['humidity']}}
+                </p>
+                <p>
+                    Pressure : {{data['pressure']}}
+                </p>
+                <p>
+                    Wind speed : {{data['wind_speed']}}
+                </p>
+            </div>
+            {% endif %}
+
+        </div>
+        
+    </body>
+</html>
